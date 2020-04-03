@@ -16,16 +16,3 @@ class Backer
     end
 
 end
-
-
-num = [2,2,2,2,2]
-
-num.map do |key|
-    key+1
-end
-
-[]
-
-[2,2,2,2,2]
-
-[3,3,3,3,3]
