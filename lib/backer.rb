@@ -5,26 +5,16 @@ class Backer
         @name = name
     end
 
-    def back_project(project)
+    def pb
+        ProjectBacker.all.select {|pb| pb.backer == self}
+    end
+
+    def backed_projects
+        pb.map {|pb| pb.project}
+    end
+
+    def back_project(project) 
         ProjectBacker.new(project, self)
     end
 
-
-
-
-
-
-
-    # def pb
-    #     ProjectBacker.all.select do |project| 
-    #         project.backer == self
-    #     end
-    # end
-
-    # def back_project(project)
-    #     pb.map do |projects|
-    #         projects.backer == self
-    #     end
-    # end
-    
 end
