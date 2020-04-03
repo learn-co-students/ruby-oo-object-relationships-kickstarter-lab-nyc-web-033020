@@ -14,5 +14,12 @@ class ProjectBacker
         @@all
     end
 
+    # def projects
+    #     Project.all
+    # end
+
+    # def backers
+    #     Backer.all
+    # end
 
 end
