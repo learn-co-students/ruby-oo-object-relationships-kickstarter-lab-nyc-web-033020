@@ -1,3 +1,20 @@
-#Test comment for Garen and Taevon.
+class Backer
+  attr_accessor :name
 
-#Taevon's test comment
+  def initialize(name)
+    @name = name
+  end
+
+  def back_project(project)
+    ProjectBacker.new(project, self)
+  end
+
+  def backed_projects
+    pb = ProjectBacker.all.select { |key| key.backer == self  }
+    pb.map do |key|
+      key.project
+    end
+  end
+
+
+end
