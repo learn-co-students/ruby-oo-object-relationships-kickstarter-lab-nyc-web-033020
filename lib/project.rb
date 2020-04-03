@@ -1,19 +1,24 @@
 class Project
   attr_reader :title
-  @@all = [] #
+  #@@all = [] #
   def initialize(title)
     @title = title
-    Project.all << self #
+  
   end
 
   def add_backer(backer)
     ProjectBacker.new(self, backer)
   end
 
-  def self.all #
-    @@all
-  end
 
 end
 
-Project.new("Tower")
+def backers
+  projects = ProjectBacker.all.select do |pb|
+    pb.project == self
+  end
+  my_backers = projects.map { |ele| ele.backer }
+  backer_names = my_backers.map { |ele| ele.name }
+end
+
+#Project.new("Tower")
