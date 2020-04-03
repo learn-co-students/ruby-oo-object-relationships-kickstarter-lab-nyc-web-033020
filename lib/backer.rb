@@ -1,3 +1,4 @@
+require 'pry'
 class Backer
     attr_reader :name
     @@all = []
@@ -12,11 +13,11 @@ class Backer
     end
 
     def back_project(project)
-        Project.new (title, project_backer, self)
+        ProjectBacker.new(project, self)
     end
 
     def backed_projects
-        Project.all.select do |projects|
+        ProjectBacker.all.select do |projects|
             projects.backer == self
         end
     end
