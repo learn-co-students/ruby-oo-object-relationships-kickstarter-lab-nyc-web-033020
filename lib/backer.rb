@@ -1,3 +1,5 @@
+require 'pry'
+
 class Backer
   attr_reader :name
 
@@ -10,9 +12,11 @@ class Backer
   end
 
   def backed_projects
-    ProjectBacker.all.select { |projects| projects.backer == self }
+    projects_arr = ProjectBacker.all.select { |projects| projects.backer == self }
 
-
+    projects_arr.map do |backed_project|
+      backed_project.project
+    end
 
     # projects_arr = []
     # ProjectBacker.all.each do |project|
